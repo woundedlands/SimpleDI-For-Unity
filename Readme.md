@@ -66,7 +66,10 @@ private void Start()
 
 ```csharp
 [ResolveFromParent(true)]
-[ResolveFromChild(true)]
-[ResolveFromScene(true)]
-[ResolveFromSelf(true)]
+```
+
+### Interfaces are also supported:
+
+```csharp
+[ResolveFromParent] IMyType myType
 ```
