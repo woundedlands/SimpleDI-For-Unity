@@ -96,15 +96,35 @@ namespace SimpleDI
 
         public void ResolveFromScene(MonoBehaviour target, System.Reflection.FieldInfo field, bool isOptional = false)
         {
-            Component component = null;
-            var sceneRoots = SceneManager.GetActiveScene().GetRootGameObjects();
+            // Search Upwards (Parent → Root)
+            Component component = target.GetComponentInParent(field.FieldType); ;
 
-            foreach (var item in sceneRoots)
+            // Search Downwards (Children → Grandchildren)
+            if (component == null)
             {
-                component = item.GetComponentInChildren(field.FieldType);
-                if (component != null)
+                component = target.GetComponentInChildren(field.FieldType);
+            }
+
+            // Search Other Hierarchies (Roots → Children)
+            if (component == null)
+            {
+                var currentRoot = target.transform.root;
+                var sceneRoots = SceneManager.GetActiveScene().GetRootGameObjects();
+
+                foreach (var root in sceneRoots)
                 {
-                    break;
+                    bool isCurrentHierarchy = root == currentRoot.gameObject;
+                    if (isCurrentHierarchy)
+                    {
+                        continue;
+                    }
+
+                    component = root.GetComponentInChildren(field.FieldType);
+
+                    if (component != null)
+                    {
+                        break;
+                    };
                 }
             }
 

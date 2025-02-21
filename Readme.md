@@ -56,7 +56,7 @@ private void Start()
 
 ### [ResolveFromScene]
 
-#### Resolved from scene, starting search from root of the scene
+#### Resolved from scene. Searches to the root, then searches all children, then searches other hierarchies inside current scene. First found is resolved
 
 ### [ResolveFromSelf]
 
