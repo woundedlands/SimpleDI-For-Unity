@@ -8,7 +8,7 @@ A lightweight, attribute-based Dependency Injection (DI) system for Unity. Resol
 
 Unity 2019+ is supported (Including Unity 6)
 
-1. Download the latest `.unitypackage` from [Releases](https://github.com/yourusername/SimpleDI/releases/latest).
+1. Download the latest `.unitypackage` from [Releases](https://github.com/woundedlands/SimpleDI-For-Unity/releases/latest).
 2. Import the package into your Unity project.
 
 ---
