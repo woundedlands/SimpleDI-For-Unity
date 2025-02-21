@@ -48,11 +48,11 @@ private void Start()
 
 ### [ResolveFromParent]
 
-#### Resolved from nearest in hierarchy
+#### Resolved from nearest parent in hierarchy
 
 ### [ResolveFromChild]
 
-#### Resolved from first child in hierarchy
+#### Resolved from any nested child
 
 ### [ResolveFromScene]
 
